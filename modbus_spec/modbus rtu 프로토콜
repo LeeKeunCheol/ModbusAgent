@@ -18,4 +18,42 @@ modbus 의 function code
                                             (3 register * 2 byte)
                                             
       
-      Read Input Registers
+      
+      
+    Read Input Registers ( 0x04 ) : 한개의 Register 에서 정보를 읽어온다.
+        Request
+            11              04              0008                0001                B298
+            Slave Address   Function code   Data address        num of register     CRC
+            
+        Response
+            11              04              02                  000A                F8F4
+            Slave Address   Function code   num of data byte    data                CRC
+            
+            
+            
+            
+    Force Single Coli ( 0x05 )  : 한개의 coil 에 data 를 저장한다.
+        Request
+            11              05              00AC                FF00        4E8B
+            Slave Address   Function code   Data address        ON          CRC
+                                                                FF00 = ON
+                                                                0000 = OFF
+            
+        Response
+            echo request ( 입력 그대로를 출력 )
+            정보를 저장한 후 Response 한다.
+            
+    
+    
+    
+    Preser Multiple Registers ( 0x10 )  : 여러개의 레지스터에 정보를 저장한다.
+        Request
+            11              10              0001                0002                04                  000A         0102        C6F0
+            Slave Address   Function code   first Data address  num of register     num of data byte    data 1       data 2      CRC
+                                            ( 1 + 40001 )                           (2 Register * 2byte )
+                                            register 40002 
+                                            
+        Response
+            11              10              0001                0002                1298
+            Slave Address   Function code   first Data address  num of register     CRC
+            
