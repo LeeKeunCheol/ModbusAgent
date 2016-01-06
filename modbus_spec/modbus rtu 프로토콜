@@ -43,12 +43,11 @@ modbus 의 function code
             
             
             
-    Force Single Coli ( 0x05 )  : 한개의 coil 에 data 를 저장한다.
+    Preset Single Register ( 0x06 )  : 한개의 coil 에 data 를 저장한다.
         Request
-            11              05              00AC                FF00        4E8B
-            Slave Address   Function code   Data address        ON          CRC
-                                                                FF00 = ON
-                                                                0000 = OFF
+            11              06              0001                0003                9A9B
+            Slave Address   Function code   Data address        value to write      CRC
+
             
         Response
             echo request ( 입력 그대로를 출력 )
