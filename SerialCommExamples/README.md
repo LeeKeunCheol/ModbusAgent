@@ -7,6 +7,23 @@
 	terminal 1
 	> terminal 1 $ socat -d -d pty,raw,echo=0 pty,raw,echo=0
 	
+	2016/01/06 10:14:10 socat[26237] N PTY is /dev/pts/3		//
+	2016/01/06 10:14:10 socat[26237] N PTY is /dev/pts/4		// remember this number
+	2016/01/06 10:14:10 socat[26237] N starting data transfer loop with FDs [3,3] and [5,5]
+
+	
+	
+	terminal 2
+	> terminal 2 $ ./cli 3
+	> hi
+	> hello
+	
+	
+	
+	terminal 3
+	> terminal 3 $ ./serv 4
+	> buf is [hi]
+	> buf is [hello]
 	
 	
 	
