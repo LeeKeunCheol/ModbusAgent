@@ -4,6 +4,9 @@
 
 
 # 사용법
-
-	> # terminal 1
+	terminal 1
+	> terminal 1 $ socat -d -d pty,raw,echo=0 pty,raw,echo=0
+	
+	
+	
 	
